@@ -1,0 +1,23 @@
+.about {
+  padding: 4rem 3rem;
+  background-color: #000;
+  color: white;
+  text-align: center;
+}
+
+.skills {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 0;
+}
+
+.skills li {
+  background: #1a1a1a;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  border: 1px solid #333;
+}

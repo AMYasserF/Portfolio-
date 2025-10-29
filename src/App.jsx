@@ -1,20 +1,24 @@
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Projects from './components/Projects';
-import About from './components/About';
-import Contact from './components/Contact';
+import { Toaster } from '@/components/ui/sonner';
+import { TooltipProvider } from '@/components/ui/tooltip';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Index from './pages/Index'
+import NotFound from './pages/NotFound';
 
+const queryClient = new QueryClient();
 
-function App() {
-  return (
-    <div className="app">
-      <Navbar />
-      <section id="hero"><Hero /></section>
-      <section id="projects"><Projects /></section>
-      <section id="about"><About /></section>
-      <section id="contact"><Contact /></section>
-    </div>
-  );
-}
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
 
 export default App;
